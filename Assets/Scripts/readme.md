@@ -1,6 +1,9 @@
-Before starting any project, I always make a plan.
-For this I knew I wanted a MainManager and a Gameplay manager, and then could have other subscripts to manage keeping track of the score and the menu system.
-I often set up delegate patterns between managers to de-couple the code but for this project that didn't seem necessary.
+Before starting any project, I always make a plan.  For this I knew I wanted a MainManager and a Gameplay manager, and then could have other subscripts to manage keeping track of the score and the menu system.
+Though maybe not necessary for a project this size, I set up delegate patterns between managers to de-couple the code.  I find this de-coupling is very important as projects grow and or need to be refactored.
+
+I used _ before instance variables for this project in conjunction with .net naming conventions.
+I find this can make the code more readable as one can determine the scope of the variable at a glance.
+I know this is not the most common naming convention for Unity and am happy to use which ever convention best suits the project.  
 
 I opted to use the physics to emulate the dice roll.
 Animations seemed like they would become stale on repeat play throughs.
