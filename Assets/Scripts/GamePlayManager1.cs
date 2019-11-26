@@ -13,7 +13,10 @@ public class GamePlayManager1 : MonoBehaviour, DiceDelegate {
     public Dice _dice2;
 
     public Text _scoreLabel;
+
     public Toggle _fixedToggle;
+    private int _fixedCount = 0;
+
     public GameOverMenu _gameOverMenu;
     public Animator _animator;
     public Animator _scoreAnimator;
@@ -60,11 +63,17 @@ public class GamePlayManager1 : MonoBehaviour, DiceDelegate {
     }
     private void Roll(){
         //roll the dice and wait for result
-        //TODO put in a timer just in case
+
+        //check if is fixed
+        if(_fixedToggle.isOn){
+            _fixedCount++;
+        }else{
+            _fixedCount = 0;
+        }
         _isRolling = true;
         ShowControls(false);
-        _dice1.Roll(_fixedToggle.isOn);
-        _dice2.Roll(_fixedToggle.isOn);
+        _dice1.Roll(_fixedCount == 5);
+        _dice2.Roll(_fixedCount == 5);
     }
     private void DoneRolling(){
         Debug.Log("the roll has finished");
